@@ -1,0 +1,20 @@
+<!DOCTYPEhtml>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Comment</title>
+</head>
+<body>
+    {% comment %} para mandar a llamar a la vista add y la variable name que se le asigno en la vista add.html
+    {% comment %} <h1>Add a New Comment</h1>
+    <a href="{% url 'add' %}" target="_blank" rel="noopener noreferrer"></a>
+    {{ name }} {% endcomment %}
+     
+    <form action="{% url 'add' %}" method="post">
+        {% csrf_token %}
+        <textarea name="text" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+
+
+</body>
+</html> 
