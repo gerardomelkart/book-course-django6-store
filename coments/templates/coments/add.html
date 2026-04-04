@@ -9,11 +9,19 @@
     <a href="{% url 'add' %}" target="_blank" rel="noopener noreferrer"></a>
     {{ name }} {% endcomment %}
      
-    <form action="{% url 'add' %}" method="post">
+    {% comment %} <form action="{% url 'add' %}" method="post">
         {% csrf_token %}
         <textarea name="text" required></textarea>
         <button type="submit">envia</button>
-    </form>
+    </form> {% endcomment %}
+
+    
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">envia</button>
+    </form> 
 
 
 </body>
