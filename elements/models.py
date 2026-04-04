@@ -1,4 +1,7 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+
+
 
 # Create your models here.
 class Category(models.Model):
@@ -24,6 +27,10 @@ class Element(models.Model):
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
     type = models.ForeignKey(Type, on_delete=models.CASCADE)
+
+    def clean(self):
+        if self.price < 0:
+            raise ValidationError('Price cannot be negative')
     
     def __str__(self):
         return self.title
