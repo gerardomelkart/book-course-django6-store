@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elmement List</title>
-    <style>
-        body {
+body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #f0f2f5;
             margin: 0;
@@ -90,27 +83,3 @@
             background-color: #007bff;
             border-color: #007bff;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <a href="{% url 'elements:add' %}" class="add-link">Add Element</a>
-        {% for e in elements %}
-            <div class="comment-card">
-                <p>{{ e.id }} - {{ e.title }}</p>
-                <p class="date">{{ e.created }}</p>
-                <div class="comment-actions">
-                    <a href="{% url 'elements:update' e.id %}" class="btn btn-edit">Edit</a>
-                    <form action="{% url 'elements:delete' e.id %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-delete">Delete</button>
-                    </form>
-                </div>
-            </div>
-        {% endfor %}
-
-        <!-- Paginación -->
-        {% include 'partials/pagination.html' with page_obj=elements %}
-    </div>
-</body>
-</html>

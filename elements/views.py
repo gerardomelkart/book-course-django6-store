@@ -26,7 +26,7 @@ def add(request):
 
 def index(request):
     elements = Element.objects.all()
-    paginator = Paginator(elements, 15)
+    paginator = Paginator(elements, 5)
     page_number = request.GET.get('page')
     elements_page = paginator.get_page(page_number)
     return render(request,'elements/index.html',{'elements':elements_page})

@@ -44,7 +44,7 @@ def add(request):
 
 def index(request):
     comments = get_list_or_404(Comment)
-    paginator = Paginator(comments, 15)
+    paginator = Paginator(comments, 5)
     page_number = request.GET.get('page')
     comments_page = paginator.get_page(page_number)
     return render(request, 'coments/index.html', {'comments': comments_page})

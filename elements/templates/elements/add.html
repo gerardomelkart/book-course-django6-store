@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% extends "base.html" %}
+{% block head %}
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -62,9 +58,8 @@
             margin-top: 10px; /* Add some space above the button */
         }
     </style>
-</head>
-<body>
-
+{% endblock head %}
+{% block content %}
     {% if form.errors %}
       {% for field in form %}
         {% for error in field.errors %}
@@ -81,6 +76,4 @@
         {{ form }}
         <button type="submit">envia</button>
     </form>
-
-</body>
-</html>
+{% endblock content %}
